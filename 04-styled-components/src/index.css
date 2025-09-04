@@ -13,14 +13,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@font-face {
-  font-family: "BigBlue Terminal";
-  src: url("../assets/BigBlueTerminal/BigBlueTermPlusNerdFont-Regular.ttf")
-    format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 a {
   font-weight: 500;
   color: #646cff;
@@ -32,7 +24,7 @@ a:hover {
 
 body {
   background: #192647;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   /* background: #192647; */
   /* height: 100vh; */

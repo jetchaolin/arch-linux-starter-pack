@@ -1,20 +1,26 @@
 import styled from "styled-components";
-
-const Title = styled.h1`
-  color: #d7e144;
-  font-family: "Arial", sans-serif;
-  font-size: 8.5rem;
-`;
-
-const Wrapper = styled.section`
-  padding: 4em;
-  background: #192647;
-`;
+import { lightTheme, darkTheme } from "../hooks/themes.js";
+import { useTheme } from "../context/ThemeContext";
 
 function Home() {
+  const { theme } = useTheme();
+
+  const Title = styled.h1`
+    color: ${theme == "light" ? lightTheme.primary : darkTheme.primary};
+    font-family: "Arial", sans-serif;
+    font-size: 8.5rem;
+  `;
+
+  const Wrapper = styled.section`
+    padding: 4em;
+    background: ${theme == "light"
+      ? lightTheme.background
+      : darkTheme.background};
+  `;
+
   return (
-    <Wrapper>
-      <Title>MINI LOJA</Title>
+    <Wrapper id="home">
+      <Title>Arch Linux Starter Pack</Title>
     </Wrapper>
   );
 }

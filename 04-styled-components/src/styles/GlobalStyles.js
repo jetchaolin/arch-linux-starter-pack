@@ -11,16 +11,20 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--font-family);
+  // background-color: var(--background-color);
+  // color: var(--text-color);
+  // font-family: var(--font-family);
 }
 * {
   // margin: 0;
   // padding: 0;
   box-sizing: border-box;
+}
+
+#root {
+height: min-content;
 }
 
 h1 {
@@ -37,17 +41,11 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+@media max-width(1072px) {
+ body {
+  height: min-content;
+}
+  
 }
 
     `;

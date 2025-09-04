@@ -1,23 +1,31 @@
 // import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext.jsx";
+import WrapperContainer from "./components/WrapperContainer.jsx";
 import GlobalStyles from "./styles/GlobalStyles.js";
 import Home from "./pages/Home.jsx";
 import Navbar from "./components/NavBar.jsx";
 import Products from "./pages/Products.jsx";
 import CartPage from "./pages/CartPage.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <GlobalStyles />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/cart" element={<CartPage />} />
-        </Routes>
-      </Router>
+      <ThemeProvider value={"light"}>
+        <Router>
+          <WrapperContainer>
+            <GlobalStyles />
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/apps" element={<Products />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Routes>
+            <Footer />
+          </WrapperContainer>
+        </Router>
+      </ThemeProvider>
     </>
   );
 }
