@@ -32,6 +32,14 @@ h1 {
   line-height: 1.1;
 }
 
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
 
 button:hover {
   border-color: #646cff;

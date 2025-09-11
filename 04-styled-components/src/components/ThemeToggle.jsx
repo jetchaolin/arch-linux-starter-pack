@@ -16,6 +16,13 @@ export default function ThemeToggle() {
     &:hover {
       color: ${theme == "light" ? lightTheme.primary : darkTheme.primary};
     }
+
+    &:focus-visible {
+      outline: 2px solid
+        ${theme == "light" ? lightTheme.primary : darkTheme.primary}; /* Borda da cor do seu tema */
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
   `;
 
   return (

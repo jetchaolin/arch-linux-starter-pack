@@ -1,31 +1,53 @@
 import styled from "styled-components";
-import Button from "./Button.jsx";
+import { useState, useEffect } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
-import { addToCart, getCart } from "../hooks/cart.js";
+import { addToCart } from "../hooks/cart.js";
+import { addToStars, getStars } from "../hooks/rating.js";
+import Button from "./Button.jsx";
+import RatingStar from "./RatingStars.jsx";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Stack from "@mui/material/Stack";
 
-function Card({ cardData }) {
+const Container = styled.div`
+  max-width: 500px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  &:hover Img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  &:hover h1 {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+`;
+
+const Bottom = styled.span`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`;
+
+const P = styled.p`
+  color: white;
+`;
+
+function Card({ cardData, value, disabled }) {
+  const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
-  const Container = styled.div`
-    max-width: 500px;
-    max-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    &:hover Img {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    &:hover h1 {
-      transform: scale(1.05);
-      transition: transform 0.3s ease;
-    }
-  `;
+  const [rating, setRating] = useState(
+    getStars().length === 0 ? Array(value).fill(0) : getStars(),
+  );
 
   const Title = styled.h1`
     font-size: 2rem;
@@ -45,29 +67,27 @@ function Card({ cardData }) {
     object-position: center;
   `;
 
-  const Bottom = styled.span`
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-  `;
-
-  const Stars = styled.span`
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.3rem;
-    color: white;
-  `;
-
-  const P = styled.p`
-    color: white;
-  `;
+  useEffect(() => {
+    const handleAction = async () => {
+      setLoading(true);
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+      setLoading(false);
+    };
+    handleAction();
+  }, []);
 
   const handleAddToCart = (app) => {
     addToCart(app);
-    console.log(getCart());
+  };
+
+  const handleRating = (cardId, ratedChild = null) => {
+    let newRating = rating.slice();
+    newRating[cardId - 1] = ratedChild;
+    if (rating[cardId - 1] === newRating[cardId - 1]) {
+      newRating[cardId - 1] = 0;
+    }
+    setRating(newRating);
+    addToStars(cardId - 1, ratedChild);
   };
 
   return (
@@ -76,36 +96,55 @@ function Card({ cardData }) {
         id={`card-id-${cardData.id}`}
         className={`card-${cardData.title}`}
       >
-        <Title
-          id={`title-id-${cardData.id}`}
-          className={`title-${cardData.title[0]}`}
-        >
-          {cardData.title[0]}
-        </Title>
-        <Img src={cardData.image} alt={`img-${cardData.title}`} />
+        {!loading ? (
+          <Title
+            id={`title-id-${cardData.id}`}
+            className={`title-${cardData.title[0]}`}
+          >
+            {cardData.title[0]}
+          </Title>
+        ) : (
+          <Skeleton animation="wave" height={40} width={240} borderRadius={6} />
+        )}
+        {!loading ? (
+          <Img src={cardData.image} alt={`img-${cardData.title[0]}`} loading="lazy" />
+        ) : (
+          <Skeleton animation="wave" height={170} width={300} borderRadius={16} />
+        )}
         <Bottom
           id={`container-bottom-${cardData.id}`}
           className="container-bottom"
         >
-          <Button
-            childrensId={cardData.id}
-            className={`btn-${cardData.title[0]}`}
-            childrenOnClick={() => handleAddToCart(cardData.title[0])}
-          >
-            <i className="fa-solid fa-cart-plus"></i>
-          </Button>
-          <P id={`size-id-${cardData.id}`}>Size: {cardData.title[1]}</P>
+          {!loading ? (
+            <Button
+              childrensId={cardData.id}
+              className={`btn-${cardData.title[0]}`}
+              childrenOnClick={() => handleAddToCart(cardData.title)}
+              disabled={disabled}
+            >
+              <i className="fa-solid fa-cart-plus"></i>
+            </Button>
+          ) : (
+            <Skeleton animation="wave" height={50} width={50} borderRadius={6} />
+          )}
+          {!loading ? (
+            <P id={`size-id-${cardData.id}`}>
+              Preço: {cardData.title[1]} de armazenamento
+            </P>
+          ) : (
+            <Skeleton animation="wave" height={20} width={240} borderRadius={6} />
+          )}
         </Bottom>
-        <Stars
-          id={`stars-id-${cardData.id}`}
-          className={`stars-${cardData.title}`}
-        >
-          <i id={`1-star`} className="fa-regular fa-star"></i>
-          <i id={`2-star`} className="fa-regular fa-star"></i>
-          <i id={`3-star`} className="fa-regular fa-star"></i>
-          <i id={`4-star`} className="fa-regular fa-star"></i>
-          <i id={`5-star`} className="fa-regular fa-star"></i>
-        </Stars>
+        {!loading ? (
+          <RatingStar
+            starMemory={rating[cardData.id - 1]}
+            cardId={cardData.id}
+            childrenRating={handleRating}
+            starId={`star-span-id-${cardData.id}`}
+          />
+        ) : (
+          <Skeleton animation="wave" height={20} width={140} borderRadius={6} />
+        )}
       </Container>
     </>
   );

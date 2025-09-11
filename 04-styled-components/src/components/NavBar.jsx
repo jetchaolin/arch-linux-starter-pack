@@ -1,9 +1,11 @@
+// import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 import ThemeStatus from "./ThemeStatus.jsx";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { useTheme } from "../context/ThemeContext";
+// import { getCart,  cartArray } from "../hooks/cart.js";
 
 function NavBar() {
   const { theme } = useTheme();
@@ -22,6 +24,13 @@ function NavBar() {
 
     &:hover {
       color: white;
+    }
+
+    &:focus-visible {
+      outline: 2px solid
+        ${theme == "light" ? lightTheme.primary : darkTheme.primary}; /* Borda da cor do seu tema */
+      outline-offset: 2px;
+      border-radius: 4px;
     }
   `;
 
@@ -43,6 +52,13 @@ function NavBar() {
     &:hover {
       text-decoration: underline;
     }
+
+    &:focus-visible {
+      outline: 2px solid
+        ${theme == "light" ? lightTheme.primary : darkTheme.primary}; /* Borda da cor do seu tema */
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
   `;
 
   const NavItemRight = styled.a`
@@ -52,6 +68,13 @@ function NavBar() {
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid
+        ${theme == "light" ? lightTheme.primary : darkTheme.primary}; /* Borda da cor do seu tema */
+      outline-offset: 2px;
+      border-radius: 4px;
     }
   `;
 
@@ -72,12 +95,14 @@ function NavBar() {
 
   return (
     <>
-      <Nav id="navbar">
+      <Nav id="navbar" aria-label="Navegação Principal">
         <Span id="logo-span">
-          <Logo href="/">ALSP</Logo>
+          <Logo href="/" aria-label="Voltar para a página inicial, ALSP">
+            ALSP
+          </Logo>
         </Span>
         <Span id="navitems-span">
-          <NavItem id="nav-item-home" href="/">
+          <NavItem id="nav-item-home" href="/" aria-current="page">
             Home
           </NavItem>
           <NavItem id="nav-item-apps" href="/apps">
@@ -91,9 +116,13 @@ function NavBar() {
           </NavItem>
         </Span>
         <Span id="rightitems-span">
-          <NavItemRight id="nav-item-cart" href="/cart">
+          <NavItemRight
+            id="nav-item-cart"
+            href="/cart"
+            aria-label="Ir para o carrinho de compras"
+          >
             <Svg id="cart-icon">
-              <i class="fa-solid fa-cart-shopping"></i>
+              <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
             </Svg>
           </NavItemRight>
           <ThemeToggle />

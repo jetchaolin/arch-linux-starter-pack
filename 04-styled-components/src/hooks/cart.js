@@ -4,7 +4,6 @@ window.addEventListener("DOMContentLoaded", () => {
   const dados = localStorage.getItem("cartList");
   if (dados) {
     cartArray = JSON.parse(dados);
-    // renderizarLista();
   }
 });
 
@@ -12,32 +11,30 @@ function saveData() {
   localStorage.setItem("cartList", JSON.stringify(cartArray));
 }
 
-function clearCart(item) {
+function clearCart() {
   localStorage.removeItem("cartList");
   cartArray = [];
-  console.log("Cart cleared");
+  saveData();
 }
 
-function removeItem(item) {
-  cartArray.splice(cartArray.indexOf(item), 1);
-  console.log(`${item} removed from cart`);
+function removeItem(index) {
+  cartArray.splice(index, 1);
+  saveData();
   return;
 }
 
 function addToCart(item) {
   if (cartArray.includes(item)) {
-    removeItem(item);
-    saveData();
+    removeItem(cartArray.indexOf(item));
     return;
   }
   cartArray.push(item);
   saveData();
-  console.log(`${item} added to cart`);
-  console.log("Cart list: ", cartArray);
 }
 
 function getCart() {
-  return cartArray;
+  let dados = localStorage.getItem("cartList");
+  return JSON.parse(dados) || [];
 }
 
-export { addToCart, getCart };
+export { cartArray, addToCart, getCart, removeItem, clearCart };
