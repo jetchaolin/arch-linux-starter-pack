@@ -1,0 +1,14 @@
+#home {
+  padding: 4em;
+  background: var(--background-color);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
+}
+
+#title {
+  color: var(--primary-color);
+  font-family: "Arial", sans-serif;
+  font-size: 8.5rem;
+}

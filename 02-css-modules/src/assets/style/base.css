@@ -1,0 +1,141 @@
+:root {
+  text-align: center;
+  --primary-color: ${props => props.theme.primary};
+  --secondary-color: #e7e7e7;
+  --background-color: #192647;
+  --text-color: #ffffff;
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+* {
+  /* margin: 0; */
+  /* padding: 0; */
+  box-sizing: border-box;
+}
+
+#root {
+  height: min-content;
+}
+
+section {
+  padding: 2rem;
+  /* background-color: var(--background-color); */
+}
+
+/* Nav and items */
+nav {
+  /* background: var(--background-color); */
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0 12rem;
+  height: fit-content;
+}
+
+h1 {
+  color: var(--primary-color);
+  font-family: "Arial", sans-serif;
+  font-size: 8.5rem;
+
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-family: "arial", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  /* padding-left: 10px; */
+  /* left: 10px; */
+  /* margin: 0 0; */
+
+  &:hover {
+    color: white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color); /* borda da cor do seu tema */
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+img {
+  display: block;
+  border: 0.1rem solid var(--primary-color);
+  border-radius: 0.8rem;
+  margin: 0 1rem 2rem 1rem;
+  width: 300px;
+  height: 170px;
+  object-fit: cover;
+  object-position: center;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+button {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: solid 0.1rem var(--primary-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  /* width: ${buttonWidth ? buttonWidth + "px" : "auto"}; */
+  /* height: ${buttonHeight ? buttonHeight + "px" : "auto"}; */
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: solid 0.1rem white;
+  }
+
+  &:active {
+    background-color: var(--primary-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &:disabled {
+    background-color: #ccc; /* Lighter background */
+    color: #666; /* Darker text color */
+    cursor: not-allowed; /* Indicate it's unclickable */
+    opacity: 0.7; /* Reduce opacity */
+  }
+}
+

@@ -1,0 +1,10 @@
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: min-content;
+  min-height: 100vh;
+  margin: 0;
+}
+
+

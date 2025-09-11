@@ -1,0 +1,61 @@
+import { createGlobalStyle } from "styled-components";
+
+const GlobalStyles = createGlobalStyle`
+:root {
+  text-align: center;
+  --primary-color: ${({ theme }) => theme.primary};
+  --secondary-color: ${({ theme }) => theme.secondary};
+  --background-color: ${({ theme }) => theme.background};
+  --text-color: ${({ theme }) => theme.text};
+  --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  // background-color: var(--background-color);
+  // color: var(--text-color);
+  // font-family: var(--font-family);
+}
+* {
+  // margin: 0;
+  // padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+height: min-content;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  transition: color 200ms;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media max-width(1072px) {
+ body {
+  height: min-content;
+}
+  
+}
+
+    `;
+
+export default GlobalStyles;

@@ -1,0 +1,54 @@
+#navitems a {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+#logo {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-family: "arial", sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  position: relative;
+  /* padding-left: 10px; */
+  /* left: 10px; */
+  /* margin: 0 0; */
+
+  &:hover {
+    color: white;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+#rightitems {
+  color: white;
+  margin-left: 1rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
