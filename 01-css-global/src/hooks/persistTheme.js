@@ -1,5 +1,3 @@
-let persistentTheme = JSON.stringify(localStorage.getItem("theme"));
-
 const toggleStoredTheme = (theme) => {
   localStorage.setItem("theme", theme);
 };

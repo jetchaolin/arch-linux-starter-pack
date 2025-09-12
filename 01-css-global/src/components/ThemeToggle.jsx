@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-// import { useTheme } from "../context/ThemeContext";
-// import styled from "styled-components";
-// import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { toggleStoredTheme, getStoredTheme } from "../hooks/persistTheme.js";
 
 export default function ThemeToggle({ theme, setTheme }) {
   const [currentTheme, setCurrentTheme] = useState(theme);
-  console.log("currentTheme", currentTheme);
   let storedTheme = getStoredTheme();
-  console.log("storedTheme", storedTheme);
 
   useEffect(() => {
     const checkForStoredTheme = () => {

@@ -1,10 +1,11 @@
 :root {
   text-align: center;
   --primary-color: ${props => props.theme.primary};
-  --secondary-color: #e7e7e7;
-  --background-color: #192647;
-  --text-color: #ffffff;
+  --secondary-color: ${props => props.theme.secondary};
+  --background-color: ${props => props.theme.background};
+  --text-color: ${props => props.theme.text};
   --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    height: min-content;
 }
 
 body {
@@ -16,23 +17,14 @@ body {
 }
 
 * {
-  /* margin: 0; */
-  /* padding: 0; */
   box-sizing: border-box;
-}
-
-#root {
-  height: min-content;
 }
 
 section {
   padding: 2rem;
-  /* background-color: var(--background-color); */
 }
 
-/* Nav and items */
 nav {
-  /* background: var(--background-color); */
   display: flex;
   justify-content: space-between;
   padding: 1rem;
@@ -57,9 +49,6 @@ a {
   font-weight: bold;
   text-align: center;
   position: relative;
-  /* padding-left: 10px; */
-  /* left: 10px; */
-  /* margin: 0 0; */
 
   &:hover {
     color: white;
@@ -92,6 +81,43 @@ input[type="radio"] {
   transition: color 200ms;
 }
 
+button {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border: solid 0.1rem var(--primary-color);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: solid 0.1rem white;
+  }
+
+  &:active {
+    background-color: var(--primary-color);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  &:disabled {
+    background-color: #ccc; /* Lighter background */
+    color: #666; /* Darker text color */
+    cursor: not-allowed; /* Indicate it's unclickable */
+    opacity: 0.7; /* Reduce opacity */
+  }
+}
+
+
 button:hover {
   border-color: #646cff;
 }
@@ -99,6 +125,16 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Wrapper container */
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: min-content;
+  min-height: 100vh;
+  margin: 0;
 }
 
 /* Home */
@@ -113,6 +149,7 @@ button:focus-visible {
   font-size: 8.5rem;
 }
 
+/* Nav and items */
 #navitems-span a {
   color: white;
   margin-right: 1rem;
@@ -136,9 +173,6 @@ button:focus-visible {
   font-weight: bold;
   text-align: center;
   position: relative;
-  /* padding-left: 10px; */
-  /* left: 10px; */
-  /* margin: 0 0; */
 
   &:hover {
     color: white;
@@ -186,15 +220,7 @@ button:focus-visible {
   }
 }
 
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: min-content;
-  min-height: 100vh;
-  margin: 0;
-}
-
+/* Products */
 #products {
   background: var(--background-color);
   margin: 1rem auto 1rem auto;
@@ -239,44 +265,6 @@ button:focus-visible {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-}
-
-button {
-  background-color: var(--background-color);
-  color: var(--primary-color);
-  border: solid 0.1rem var(--primary-color);
-  padding: 0.5rem 0.8rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  text-align: center;
-  font-size: 1rem;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  /* width: ${buttonWidth ? buttonWidth + "px" : "auto"}; */
-  /* height: ${buttonHeight ? buttonHeight + "px" : "auto"}; */
-
-  &:hover {
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    border: solid 0.1rem white;
-  }
-
-  &:active {
-    background-color: var(--primary-color);
-  }
-
-  &:focus-visible {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-    border-radius: 4px;
-  }
-
-  &:disabled {
-    background-color: #ccc; /* Lighter background */
-    color: #666; /* Darker text color */
-    cursor: not-allowed; /* Indicate it's unclickable */
-    opacity: 0.7; /* Reduce opacity */
-  }
 }
 
 /* CartPage */

@@ -25,8 +25,11 @@ function removeItem(index) {
 
 function addToCart(item) {
   if (cartArray.includes(item)) {
-    removeItem(cartArray.indexOf(item));
-    return;
+    let dupplicate = cartArray.indexOf(item);
+    if (dupplicate.includes(item[0])) {
+      removeItem(cartArray.indexOf(item));
+      return;
+    }
   }
   cartArray.push(item);
   saveData();

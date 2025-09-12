@@ -10,8 +10,8 @@
 
 ## **Pré-requisitos**
 
-* [NodeJS](#baixe-e-instale-o-nvm)
-* [React](#instale-as-dependencias)
+- [`NodeJS`](#modo-de-instalação)
+- [`React`](#instale-as-dependências)
 
 ### Exercício CSS Global
 
@@ -113,7 +113,7 @@ git clone git@github.com:jetchaolin/Portifolio.git # Ssh
 cd arch-linux-starter-pack/01-css-global/
 ```
 
- Instale as dependências
+## **Instale as dependências**
 
 ```sh
 npm i # Ou npm install
@@ -126,4 +126,4 @@ npm i # Ou npm install
 #  Rode o comando abaixo no diretório do exercício
 npm run dev
 ```
-
+Acesse o APP na url `http://localhost:5173/`

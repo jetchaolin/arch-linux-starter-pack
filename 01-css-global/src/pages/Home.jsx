@@ -1,8 +1,4 @@
-// import styled from "styled-components";
-// import { lightTheme, darkTheme } from "../hooks/themes.js";
-// import { useTheme } from "../context/ThemeContext";
-
-function Home() {
+export default function Home() {
 
   return (
     <section id="home">
@@ -10,5 +6,3 @@ function Home() {
     </section>
   );
 }
-
-export default Home;

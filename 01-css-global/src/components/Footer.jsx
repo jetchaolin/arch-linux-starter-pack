@@ -1,9 +1,6 @@
-// import styled from "styled-components";
-// import { useTheme } from "../context/ThemeContext";
-// import { lightTheme, darkTheme } from "../hooks/themes.js";
 import "../assets/style/index.css";
 
-function Footer() {
+export default function Footer() {
 
   return (
     <footer id="footer-container">
@@ -13,5 +10,3 @@ function Footer() {
     </footer>
   );
 }
-
-export default Footer;

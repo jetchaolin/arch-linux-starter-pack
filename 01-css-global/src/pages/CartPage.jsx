@@ -1,12 +1,9 @@
-// import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { getCart } from "../hooks/cart.js";
-import { lightTheme, darkTheme } from "../theme.js";
-// import { useTheme } from "../context/ThemeContext";
 import { removeItem, clearCart } from "../hooks/cart.js";
 import Button from "../components/Button.jsx";
 
-function CartPage() {
+export default function CartPage() {
   let [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -95,5 +92,3 @@ function CartPage() {
     </>
   );
 }
-
-export default CartPage;

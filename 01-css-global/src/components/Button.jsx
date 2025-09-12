@@ -1,26 +1,20 @@
-// import styled from "styled-components";
-// import { useTheme } from "../context/ThemeContext";
-import { lightTheme, darkTheme } from "../theme.js";
-
-function Button({
+export default function Button({
   children,
   childrensId,
   childrenOnClick,
   disabled,
 }) {
-
   let boolean = disabled;
   const handleDisabled = (state) => {
     if (state) {
       return true;
-    } else {
-      return false;
     }
+    return false;
   };
 
-
   return (
-    <button id="button"
+    <button
+      id="button"
       disabled={handleDisabled(boolean)}
       id={childrensId}
       onClick={childrenOnClick}
@@ -29,5 +23,3 @@ function Button({
     </button>
   );
 }
-
-export default Button;

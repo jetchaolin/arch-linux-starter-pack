@@ -1,9 +1,8 @@
+import "react-loading-skeleton/dist/skeleton.css";
 import "../assets/style/index.css";
-// import { useTheme } from "../context/ThemeContext";
-import { lightTheme, darkTheme } from "../theme.js";
+
 import Skeleton from "react-loading-skeleton";
 import Card from "../components/Card.jsx";
-import "react-loading-skeleton/dist/skeleton.css";
 
 import archlinux from "../assets/archlinux.avif";
 import hyprland from "../assets/install-hyprland-in-linux-1.png";
@@ -60,7 +59,7 @@ const products = [
   ],
 ];
 
-function Products() {
+export default function Products() {
 
   function multiplyCards(number) {
     let cardsList = [];
@@ -87,5 +86,3 @@ function Products() {
     <div id="products">{multiplyCards(products.length).map((card) => card)}</div>
   );
 }
-
-export default Products;
