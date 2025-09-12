@@ -1,6 +1,5 @@
 export default function Button({
   children,
-  childrensId,
   childrenOnClick,
   disabled,
 }) {
@@ -18,7 +17,6 @@ export default function Button({
   return (
     <button id="button"
       disabled={handleDisabled(boolean)}
-      id={childrensId}
       onClick={childrenOnClick}
     >
       {children}

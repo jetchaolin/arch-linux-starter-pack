@@ -1,15 +1,17 @@
 import "../assets/style/index.css";
+
 import { useState, useEffect } from "react";
-import { addToCart,} from "../hooks/cart.js";
+import { addToCart } from "../hooks/cart.js";
 import { addToStars, getStars } from "../hooks/rating.js";
+
 import Button from "./Button.jsx";
 import RatingStar from "./RatingStars.jsx";
+
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import Stack from "@mui/material/Stack";
 
-
-export default function Card({ cardData, value, disabled }) {
+export default function Card({ cardData, value, disabled, updateCart }) {
   const [loading, setLoading] = useState(true);
   const [rating, setRating] = useState(
     getStars().length === 0 ? Array(value).fill(0) : getStars(),
@@ -26,6 +28,7 @@ export default function Card({ cardData, value, disabled }) {
 
   const handleAddToCart = (app) => {
     addToCart(app);
+    updateCart();
   };
 
   const handleRating = (cardId, ratedChild = null) => {
@@ -40,10 +43,7 @@ export default function Card({ cardData, value, disabled }) {
 
   return (
     <>
-      <div
-        id="card-container"
-        className={`card-${cardData.title}`}
-      >
+      <div id="card-container" className={`card-${cardData.title}`}>
         {!loading ? (
           <h1
             id={`title-id-${cardData.id}`}
@@ -55,9 +55,18 @@ export default function Card({ cardData, value, disabled }) {
           <Skeleton animation="wave" height={40} width={240} borderRadius={6} />
         )}
         {!loading ? (
-          <img src={cardData.image} alt={`img-${cardData.title[0]}`} loading="lazy" />
+          <img
+            src={cardData.image}
+            alt={`img-${cardData.title[0]}`}
+            loading="lazy"
+          />
         ) : (
-          <Skeleton animation="wave" height={170} width={300} borderRadius={16} />
+          <Skeleton
+            animation="wave"
+            height={170}
+            width={300}
+            borderRadius={16}
+          />
         )}
         <span
           id={`container-bottom-${cardData.id}`}
@@ -65,7 +74,6 @@ export default function Card({ cardData, value, disabled }) {
         >
           {!loading ? (
             <Button
-              childrensId={cardData.id}
               className={`btn-${cardData.title[0]}`}
               childrenOnClick={() => handleAddToCart(cardData.title)}
               disabled={disabled}
@@ -73,14 +81,24 @@ export default function Card({ cardData, value, disabled }) {
               <i className="fa-solid fa-cart-plus"></i>
             </Button>
           ) : (
-            <Skeleton animation="wave" height={50} width={50} borderRadius={6} />
+            <Skeleton
+              animation="wave"
+              height={50}
+              width={50}
+              borderRadius={6}
+            />
           )}
           {!loading ? (
             <p id={`size-id-${cardData.id}`}>
               Preço: {cardData.title[1]} de armazenamento
             </p>
           ) : (
-            <Skeleton animation="wave" height={20} width={240} borderRadius={6} />
+            <Skeleton
+              animation="wave"
+              height={20}
+              width={240}
+              borderRadius={6}
+            />
           )}
         </span>
         {!loading ? (

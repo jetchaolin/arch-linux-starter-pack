@@ -44,7 +44,7 @@ const P = styled.p`
   color: white;
 `;
 
-export default function Card({ cardData, value, disabled }) {
+export default function Card({ cardData, value, disabled, updateCart }) {
   const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
   const [rating, setRating] = useState(
@@ -70,16 +70,19 @@ export default function Card({ cardData, value, disabled }) {
   `;
 
   useEffect(() => {
-    const handleAction = async () => {
-      setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      setLoading(false);
-    };
-    handleAction();
-  }, []);
+    if (loading === true) {
+      const handleAction = async () => {
+        setLoading(true);
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        setLoading(false);
+      };
+      handleAction();
+    }
+  }, [loading]);
 
   const handleAddToCart = (app) => {
     addToCart(app);
+    updateCart();
   };
 
   const handleRating = (cardId, ratedChild = null) => {
@@ -109,9 +112,18 @@ export default function Card({ cardData, value, disabled }) {
           <Skeleton animation="wave" height={40} width={240} borderRadius={6} />
         )}
         {!loading ? (
-          <Img src={cardData.image} alt={`img-${cardData.title[0]}`} loading="lazy" />
+          <Img
+            src={cardData.image}
+            alt={`img-${cardData.title[0]}`}
+            loading="lazy"
+          />
         ) : (
-          <Skeleton animation="wave" height={170} width={300} borderRadius={16} />
+          <Skeleton
+            animation="wave"
+            height={170}
+            width={300}
+            borderRadius={16}
+          />
         )}
         <Bottom
           id={`container-bottom-${cardData.id}`}
@@ -127,14 +139,24 @@ export default function Card({ cardData, value, disabled }) {
               <i className="fa-solid fa-cart-plus"></i>
             </Button>
           ) : (
-            <Skeleton animation="wave" height={50} width={50} borderRadius={6} />
+            <Skeleton
+              animation="wave"
+              height={50}
+              width={50}
+              borderRadius={6}
+            />
           )}
           {!loading ? (
             <P id={`size-id-${cardData.id}`}>
               Preço: {cardData.title[1]} de armazenamento
             </P>
           ) : (
-            <Skeleton animation="wave" height={20} width={240} borderRadius={6} />
+            <Skeleton
+              animation="wave"
+              height={20}
+              width={240}
+              borderRadius={6}
+            />
           )}
         </Bottom>
         {!loading ? (

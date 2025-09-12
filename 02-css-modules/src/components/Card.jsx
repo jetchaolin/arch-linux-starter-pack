@@ -11,7 +11,7 @@ import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 
 
-export default function Card({ cardData, value, disabled }) {
+export default function Card({ cardData, value, disabled, updateCart }) {
   const [loading, setLoading] = useState(true);
   const [rating, setRating] = useState(
     getStars().length === 0 ? Array(value).fill(0) : getStars(),
@@ -28,6 +28,7 @@ export default function Card({ cardData, value, disabled }) {
 
   const handleAddToCart = (app) => {
     addToCart(app);
+    updateCart();
   };
 
   const handleRating = (cardId, ratedChild = null) => {
@@ -67,7 +68,6 @@ export default function Card({ cardData, value, disabled }) {
         >
           {!loading ? (
             <Button
-              childrensId={cardData.id}
               className={`btn-${cardData.title[0]}`}
               childrenOnClick={() => handleAddToCart(cardData.title)}
               disabled={disabled}

@@ -6,9 +6,10 @@ import { useTheme } from "../context/ThemeContext";
 import { NavLink } from "react-router-dom";
 
 import ThemeToggle from "./ThemeToggle.jsx";
-import ThemeStatus from "./ThemeStatus.jsx";
 
-export default function NavBar() {
+export default function NavBar({ navCart }) {
+  let cartCount = navCart.length;
+
   const { theme } = useTheme();
 
   const Logo = styled.a`
@@ -124,6 +125,7 @@ export default function NavBar() {
           >
             <Svg id="cart-icon">
               <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              {cartCount > 0 ? <span>[{cartCount}]</span> : null}
             </Svg>
           </NavItemRight>
           <ThemeToggle />

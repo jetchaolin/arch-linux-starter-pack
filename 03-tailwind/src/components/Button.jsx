@@ -1,4 +1,4 @@
-export default function Button({ children, childrensId, childrenOnClick, disabled }) {
+export default function Button({ children, childrenOnClick, disabled }) {
   let boolean = disabled;
   const handleDisabled = (state) => {
     if (state) {
@@ -12,7 +12,6 @@ export default function Button({ children, childrensId, childrenOnClick, disable
     <button
       id="button"
       disabled={handleDisabled(boolean)}
-      id={childrensId}
       onClick={childrenOnClick}
       class="bg-[var(--background-color)] text-[var(--primary-color)] border border-[var(--primary-color)]
          px-3 py-2 rounded-md cursor-pointer text-center text-base font-bold

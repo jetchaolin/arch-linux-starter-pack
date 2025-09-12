@@ -24,9 +24,26 @@ function removeItem(index) {
 }
 
 function addToCart(item) {
-  if (cartArray.includes(item)) {
-    removeItem(cartArray.indexOf(item));
-    return;
+  let newCartArray = getCart();
+  console.log(newCartArray);
+  if (newCartArray) {
+    if (newCartArray.includes(item)) {
+      let dupplicate = newCartArray.indexOf(item);
+      if (newCartArray[dupplicate][0] === item[0]) {
+        removeItem(newCartArray.indexOf(item));
+        removeItem(cartArray.indexOf(item));
+        return;
+      }
+    } else {
+      if (cartArray.includes(item)) {
+        console.log(cartArray);
+        let dupplicate = cartArray.indexOf(item);
+        if (cartArray[dupplicate][0] == item[0]) {
+          removeItem(cartArray.indexOf(item));
+          return;
+        }
+      }
+    }
   }
   cartArray.push(item);
   saveData();

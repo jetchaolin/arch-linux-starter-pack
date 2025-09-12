@@ -50,17 +50,10 @@ const products = [
     false,
   ],
   ["Btop++", "2MB", imgs[6], "https://github.com/aristocratos/btop", false],
-  [
-    "Discord",
-    "45MB",
-    imgs[7],
-    "https://discord.com/",
-    true,
-  ],
+  ["Discord", "45MB", imgs[7], "https://discord.com/", true],
 ];
 
-export default function Products() {
-
+export default function Products({ updateCart }) {
   function multiplyCards(number) {
     let cardsList = [];
     for (let i = 0; i < number; i++) {
@@ -76,6 +69,7 @@ export default function Products() {
           }}
           value={products.length}
           disabled={products[i][4]}
+          updateCart={updateCart}
         />
       );
       cardsList.push(card);
@@ -83,6 +77,8 @@ export default function Products() {
     return cardsList;
   }
   return (
-    <div id={ProductsStyle.products}>{multiplyCards(products.length).map((card) => card)}</div>
+    <div id={ProductsStyle.products}>
+      {multiplyCards(products.length).map((card) => card)}
+    </div>
   );
 }

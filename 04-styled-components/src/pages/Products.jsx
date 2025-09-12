@@ -54,16 +54,10 @@ const products = [
     false,
   ],
   ["Btop++", "2MB", imgs[6], "https://github.com/aristocratos/btop", false],
-  [
-    "Discord",
-    "45MB",
-    imgs[7],
-    "https://discord.com/",
-    true,
-  ],
+  ["Discord", "45MB", imgs[7], "https://discord.com/", true],
 ];
 
-export default function Products() {
+export default function Products({ updateCart, fixLoading }) {
   const { theme } = useTheme();
 
   const Container = styled.div`
@@ -95,6 +89,8 @@ export default function Products() {
           }}
           value={products.length}
           disabled={products[i][4]}
+          updateCart={updateCart}
+          fixLoading={fixLoading}
         />
       );
       cardsList.push(card);

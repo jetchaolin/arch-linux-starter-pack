@@ -3,7 +3,9 @@ import "../assets/style/index.css";
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
 
-export default function NavBar({ theme, setTheme }) {
+export default function NavBar({ theme, setTheme, navCart }) {
+  let cartCount = navCart.length;
+
   return (
     <>
       <nav
@@ -65,6 +67,7 @@ export default function NavBar({ theme, setTheme }) {
           >
             <span id="cart-icon">
               <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+              {cartCount > 0 ? <span>[{cartCount}]</span> : null}
             </span>
           </a>
           <ThemeToggle theme={theme} setTheme={setTheme} />
