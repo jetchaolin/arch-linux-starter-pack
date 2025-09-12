@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
+
+import { useState, useEffect } from "react";
 
 const Stars = styled.span`
   margin-top: 1rem;

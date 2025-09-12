@@ -1,5 +1,6 @@
-import { useTheme } from "../context/ThemeContext";
 import styled from "styled-components";
+
+import { useTheme } from "../context/ThemeContext";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 
 export default function ThemeToggle() {

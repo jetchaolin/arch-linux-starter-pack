@@ -1,13 +1,14 @@
-// import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle.jsx";
-import ThemeStatus from "./ThemeStatus.jsx";
+
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { useTheme } from "../context/ThemeContext";
-// import { getCart,  cartArray } from "../hooks/cart.js";
 
-function NavBar() {
+import { NavLink } from "react-router-dom";
+
+import ThemeToggle from "./ThemeToggle.jsx";
+import ThemeStatus from "./ThemeStatus.jsx";
+
+export default function NavBar() {
   const { theme } = useTheme();
 
   const Logo = styled.a`
@@ -131,5 +132,3 @@ function NavBar() {
     </>
   );
 }
-
-export default NavBar;

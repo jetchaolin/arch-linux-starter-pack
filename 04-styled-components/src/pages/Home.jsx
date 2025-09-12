@@ -1,8 +1,9 @@
 import styled from "styled-components";
+
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { useTheme } from "../context/ThemeContext";
 
-function Home() {
+export default function Home() {
   const { theme } = useTheme();
 
   const Title = styled.h1`
@@ -24,5 +25,3 @@ function Home() {
     </Wrapper>
   );
 }
-
-export default Home;

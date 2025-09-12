@@ -4,11 +4,13 @@ import { useTheme } from "../context/ThemeContext";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { addToCart } from "../hooks/cart.js";
 import { addToStars, getStars } from "../hooks/rating.js";
+
 import Button from "./Button.jsx";
 import RatingStar from "./RatingStars.jsx";
+
+import Stack from "@mui/material/Stack";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Stack from "@mui/material/Stack";
 
 const Container = styled.div`
   max-width: 500px;
@@ -42,7 +44,7 @@ const P = styled.p`
   color: white;
 `;
 
-function Card({ cardData, value, disabled }) {
+export default function Card({ cardData, value, disabled }) {
   const [loading, setLoading] = useState(true);
   const { theme } = useTheme();
   const [rating, setRating] = useState(
@@ -149,5 +151,3 @@ function Card({ cardData, value, disabled }) {
     </>
   );
 }
-
-export default Card;

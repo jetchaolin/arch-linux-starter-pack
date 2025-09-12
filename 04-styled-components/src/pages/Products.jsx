@@ -1,8 +1,11 @@
 import styled from "styled-components";
+
 import { useTheme } from "../context/ThemeContext";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
+
 import Skeleton from "react-loading-skeleton";
 import Card from "../components/Card.jsx";
+
 import "react-loading-skeleton/dist/skeleton.css";
 
 import archlinux from "../assets/archlinux.avif";
@@ -60,7 +63,7 @@ const products = [
   ],
 ];
 
-function Products() {
+export default function Products() {
   const { theme } = useTheme();
 
   const Container = styled.div`
@@ -102,5 +105,3 @@ function Products() {
     <Container>{multiplyCards(products.length).map((card) => card)}</Container>
   );
 }
-
-export default Products;

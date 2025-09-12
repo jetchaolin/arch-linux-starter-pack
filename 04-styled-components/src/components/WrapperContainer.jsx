@@ -1,8 +1,9 @@
 import styled from "styled-components";
+
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 import { useTheme } from "../context/ThemeContext";
 
-function WrapperContainer({ children }) {
+export default function WrapperContainer({ children }) {
   const { theme } = useTheme();
 
   const Container = styled.div`
@@ -18,5 +19,3 @@ function WrapperContainer({ children }) {
   `;
   return <Container id="wrapper">{children}</Container>;
 }
-
-export default WrapperContainer;

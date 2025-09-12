@@ -1,8 +1,9 @@
 import styled from "styled-components";
+
 import { useTheme } from "../context/ThemeContext";
 import { lightTheme, darkTheme } from "../hooks/themes.js";
 
-function Footer() {
+export default function Footer() {
   const { theme } = useTheme();
 
   const FooterContainer = styled.footer`
@@ -26,5 +27,3 @@ function Footer() {
     </FooterContainer>
   );
 }
-
-export default Footer;
