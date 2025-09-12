@@ -1,14 +1,8 @@
-// import { useEffect, useState } from "react";
-// import styled from "styled-components";
 import NavBarStyle from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle.jsx";
-// import ThemeStatus from "./ThemeStatus.jsx";
-// import { lightTheme, darkTheme } from "../hooks/themes.js";
-// import { useTheme } from "../context/ThemeContext";
-// import { getCart,  cartArray } from "../hooks/cart.js";
 
-function NavBar({ theme, setTheme }) {
+export default function NavBar({ theme, setTheme }) {
   return (
     <>
       <nav id="navbar" aria-label="Navegação Principal">
@@ -52,5 +46,3 @@ function NavBar({ theme, setTheme }) {
     </>
   );
 }
-
-export default NavBar;

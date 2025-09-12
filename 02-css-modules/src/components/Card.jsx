@@ -1,19 +1,18 @@
-import CardStyle from "./Card.module.css";
 import { useState, useEffect } from "react";
-// import { useTheme } from "../context/ThemeContext";
-import { lightTheme, darkTheme } from "../theme.js";
 import { addToCart } from "../hooks/cart.js";
 import { addToStars, getStars } from "../hooks/rating.js";
+
 import Button from "./Button.jsx";
 import RatingStar from "./RatingStars.jsx";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 import Stack from "@mui/material/Stack";
+import CardStyle from "./Card.module.css";
+import Skeleton from "react-loading-skeleton";
+
+import "react-loading-skeleton/dist/skeleton.css";
 
 
-function Card({ cardData, value, disabled }) {
+export default function Card({ cardData, value, disabled }) {
   const [loading, setLoading] = useState(true);
-  // const { theme } = useTheme();
   const [rating, setRating] = useState(
     getStars().length === 0 ? Array(value).fill(0) : getStars(),
   );
@@ -100,5 +99,3 @@ function Card({ cardData, value, disabled }) {
     </>
   );
 }
-
-export default Card;

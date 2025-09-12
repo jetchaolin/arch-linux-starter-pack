@@ -1,8 +1,4 @@
-// import styled from "styled-components";
-// import { useTheme } from "../context/ThemeContext";
-import { lightTheme, darkTheme } from "../theme.js";
-
-function Button({
+export default function Button({
   children,
   childrensId,
   childrenOnClick,
@@ -29,5 +25,3 @@ function Button({
     </button>
   );
 }
-
-export default Button;

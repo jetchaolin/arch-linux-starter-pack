@@ -1,8 +1,7 @@
-import ProductsStyle from "./Products.module.css";
-// import { useTheme } from "../context/ThemeContext";
-// import { lightTheme, darkTheme } from "../theme.js";
-import Skeleton from "react-loading-skeleton";
 import Card from "../components/Card.jsx";
+import ProductsStyle from "./Products.module.css";
+import Skeleton from "react-loading-skeleton";
+
 import "react-loading-skeleton/dist/skeleton.css";
 
 import archlinux from "../assets/archlinux.avif";
@@ -60,7 +59,7 @@ const products = [
   ],
 ];
 
-function Products() {
+export default function Products() {
 
   function multiplyCards(number) {
     let cardsList = [];
@@ -87,5 +86,3 @@ function Products() {
     <div id={ProductsStyle.products}>{multiplyCards(products.length).map((card) => card)}</div>
   );
 }
-
-export default Products;
