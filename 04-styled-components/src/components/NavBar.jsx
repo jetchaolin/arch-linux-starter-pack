@@ -110,7 +110,7 @@ export default function NavBar({ navCart }) {
           <NavItem id="nav-item-apps" href="/apps">
             Apps
           </NavItem>
-          <NavItem id="nav-item-about" href="#about">
+          <NavItem id="nav-item-about" href="/about">
             About
           </NavItem>
           <NavItem id="nav-item-contact" href="#contact">

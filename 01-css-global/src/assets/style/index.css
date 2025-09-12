@@ -5,7 +5,7 @@
   --background-color: ${props => props.theme.background};
   --text-color: ${props => props.theme.text};
   --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    height: min-content;
+  height: min-content;
 }
 
 body {
@@ -116,7 +116,6 @@ button {
     opacity: 0.7; /* Reduce opacity */
   }
 }
-
 
 button:hover {
   border-color: #646cff;
@@ -230,6 +229,27 @@ button:focus-visible {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-template-rows: 2fr;
   gap: 2rem;
+}
+
+/* About */
+#about-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto 1rem auto;
+  padding: 1rem;
+  max-width: 80%;
+  height: 700px;
+}
+
+#about-title {
+  font-size: 3rem;
+  text-align: left;
+  margin: 0;
+}
+
+#about-text {
+  text-align: left;
+  font-size: 1.2rem;
 }
 
 /* Card and Items */

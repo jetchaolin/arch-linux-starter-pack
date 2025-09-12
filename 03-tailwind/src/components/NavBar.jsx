@@ -42,7 +42,7 @@ export default function NavBar({ theme, setTheme, navCart }) {
           </a>
           <a
             id="nav-item-about"
-            href="#about"
+            href="/about"
             class="text-white mr-4 no-underline hover:underline focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-[var(--primary-color)] focus-visible:outline-offset-2 focus-visible:rounded"
           >
             About

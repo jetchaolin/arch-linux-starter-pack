@@ -26,7 +26,7 @@ export default function NavBar({ theme, setTheme, navCart }) {
           <a id="nav-item-apps" href="/apps">
             Apps
           </a>
-          <a id="nav-item-about" href="#about">
+          <a id="nav-item-about" href="/about">
             About
           </a>
           <a id="nav-item-contact" href="#contact">

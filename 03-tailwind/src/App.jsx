@@ -11,6 +11,7 @@ import GlobalStyles from "./styles/GlobalStyles.js";
 import Home from "./pages/Home.jsx";
 import Navbar from "./components/NavBar.jsx";
 import Products from "./pages/Products.jsx";
+import About from "./pages/About.jsx";
 import CartPage from "./pages/CartPage.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -44,6 +45,7 @@ export default function App() {
                 path="/apps"
                 element={<Products updateCart={() => handleCart()} />}
               />
+              <Route path="/about" element={<About />} />
               <Route path="/cart" element={<CartPage />} />
             </Routes>
             <Footer />
