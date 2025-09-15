@@ -113,7 +113,7 @@ export default function NavBar({ navCart }) {
           <NavItem id="nav-item-about" href="/about">
             About
           </NavItem>
-          <NavItem id="nav-item-contact" href="#contact">
+          <NavItem id="nav-item-contact" href="mailto:joao.ramos0793@gmail.com">
             Contact
           </NavItem>
         </Span>

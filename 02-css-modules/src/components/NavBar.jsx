@@ -28,7 +28,7 @@ export default function NavBar({ theme, setTheme, navCart }) {
           <a id="nav-item-about" href="/about">
             About
           </a>
-          <a id="nav-item-contact" href="#contact">
+          <a id="nav-item-contact" href="mailto:joao.ramos0793@gmail.com">
             Contact
           </a>
         </span>
